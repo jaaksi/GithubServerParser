@@ -2,11 +2,13 @@
 Github服务器自定义GsonAdapter数据解析
 下面是Github
 https://api.github.com/repos/jaaksi/API/contents/contact/config/config.json
+
 其中content对应的内容才是你自己的数据。而且这个内容是经过Base64编码的（注意里里面有换行符\n）。
 这样的数据，如果使用当今流行的retrofit，那么定义结构体的时候就费事了。
 我们需要定义一个外层的module，然后得到之后获取content内容，然后转码，最后再解析，得到自己真正想要的实体。多么的不方便啊。
 事实上我们并不需要关心Github服务器返回我们的外面这层数据，
 我们只想直接得到我们真正的数据。那么这个时候利用自定义的GsonAdapterFactory就可以十分方便的实现。
+
 {
 "name": "config.json",
 "path": "contact/config/config.json",
